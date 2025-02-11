@@ -7,13 +7,7 @@ client = texttospeech.TextToSpeechClient()
 # 设置文本和合成请求参数
 synthesis_input = texttospeech.SynthesisInput(ssml="""
 <speak>
-    <phoneme alphabet="ipa" ph="ˈtiːtʃeə(r)">teacher</phoneme>
-    <break time="1.2s"/>
-    <phoneme alphabet="ipa" ph="tiː">tea</phoneme>
-    <break time="1s"/>
-    <phoneme alphabet="ipa" ph="tʃeə(r)">cher</phoneme>
-    <break time="1s"/>
-    <phoneme alphabet="ipa" ph="ˈtiːtʃeə(r)">teacher</phoneme>
+    <phoneme alphabet="ipa" ph="tʃə">cher</phoneme>
 </speak>
 """)
 
@@ -22,9 +16,10 @@ voice = texttospeech.VoiceSelectionParams(
     language_code="en-US",
     name="en-US-Studio-O"  # 选择美国英语的某个语音样式
 )
+# 设置语音参数，指定语音为 en-GB    
 # voice = texttospeech.VoiceSelectionParams(
 #     language_code="en-GB",
-#     name="en-GB-Studio-B"  # 选择美国英语的某个语音样式
+#     name="en-GB-Studio-B"  # 选择英国国英语的某个语音样式
 # )
 
 # 设置音频配置
@@ -43,4 +38,4 @@ response = client.synthesize_speech(
 with open("output_ssml_teacher.mp3", "wb") as out:
     out.write(response.audio_content)
 
-print("Audio content written to file 'output_teacher.mp3'")
+print("Audio content written to file 'output_ssml_teacher.mp3'")
