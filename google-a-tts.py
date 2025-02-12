@@ -7,7 +7,7 @@ client = texttospeech.TextToSpeechClient()
 # 设置文本和合成请求参数
 synthesis_input = texttospeech.SynthesisInput(ssml="""
 <speak>
-    <phoneme alphabet="ipa" ph="tʃə">cher</phoneme>
+    <phoneme alphabet="ipa" ph="həˈloʊ">hello</phoneme>
 </speak>
 """)
 
@@ -35,7 +35,7 @@ response = client.synthesize_speech(
 )
 
 # 保存合成的语音文件
-with open("output_ssml_teacher.mp3", "wb") as out:
+with open("hello.mp3", "wb") as out:
     out.write(response.audio_content)
 
-print("Audio content written to file 'output_ssml_teacher.mp3'")
+print("Audio content written to file 'hello.mp3'")
